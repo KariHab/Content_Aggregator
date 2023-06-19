@@ -11,6 +11,11 @@ A simple articles aggregator from New York Times - Technology
 * Give you the URL if you want to read it on the website directly!
 
 # How to use it
+* This project needs:
+    newspaper3k - Package Install: pip install newspaper3k
+    requests - Package Install: pip install requests
+    bs4 (BeautifulSoup) - Package Install: pip install bs4
+    
 * Clone my repo in your machine
 * Type 'python extract.py main.py scrape.py' in your terminal 
 * Read & Enjoy
