@@ -2,12 +2,6 @@ import requests
 from bs4 import BeautifulSoup as soup 
 
 my_url = "https://www.nytimes.com/section/technology"
-# my_url = "https://www.bbc.com/news/technology"
-
-
-# 3. The content string is the first element of this list.
-# 4. The index of the "itemListElement" is used to extract a library of all the article hyperlinks and metadata.
-# 5. A substring of the content string is taken to remove the "itemListElement" from the string.
 
 def get_content_string(url):
     page = requests.get(url)
@@ -25,14 +19,6 @@ def get_content_string(url):
     return content_string
 
 
-# Method Purpose: Finds the start and end of all correct article hyperlinks in the previously extracted content string.
-# Parameter: The content string pulled from the NY Times Tech Section HTML outline.
-# Steps (How it Works):
-# 1. A list comprehension methodology searches for the common hyperlink beginning across all articles.
-# 2. A list comprehension methodology searches for the common ".html" extension at the end of each article hyperlink.
-# 3. Each element of the end_indices list are incremented by 5 in order to get the last character of the hyperlink.
-# 4. Validation techniques are used to equalize the lengths of the start and end indices.
-
 def find_occurrences(content_string):
     start_indices = [i for i in range(len(content_string)) if
                      content_string.startswith('https://www.nytimes.com/2023', i)]
@@ -46,16 +32,6 @@ def find_occurrences(content_string):
         difference = len(end_indices) - (len(end_indices) - len(start_indices))
         end_indices = end_indices[:difference]
     return start_indices, end_indices
-
-
-# Method Purpose: Extracts all article hyperlinks from the content string.
-# Parameters: The starting and ending indices of the hyperlinks in the content string.
-# Steps (How it Works):
-# 1. Defines an empty url_list which will be used for the aggregation of the URL's themselves.
-# 2. Uses a for-range loop to get all the indices of start_indices list.
-# Side Note: Since the lists are EQUALIZED in length from the previous method, the lengths of both will be equal.
-# 3. Gets a substring from the content string with the starting and ending index of the hyperlink.
-# 4. The hyperlinks are added to the url_list defined in Step 1.
 
 def get_all_urls(start_indices, end_indices, content_string):
     url_list = []
