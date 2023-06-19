@@ -16,6 +16,6 @@ A simple articles aggregator from New York Times - Technology
     * requests - Package Install: pip install requests
     * bs4 (BeautifulSoup) - Package Install: pip install bs4
 
-* Clone my repo in your machine
+* Clone this repo on your machine
 * Type 'python extract.py main.py scrape.py' in your terminal 
 * Read & Enjoy
