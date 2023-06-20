@@ -18,4 +18,4 @@ A simple articles aggregator from New York Times - Technology
 
 * Clone this repo on your machine
 * Type 'python extract.py main.py scrape.py' in your terminal 
-* Read & Enjoy
+* Read & Enjoy!
