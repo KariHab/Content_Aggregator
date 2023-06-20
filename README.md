@@ -1,5 +1,6 @@
 # Content_Aggregator
-![Content_agg](https://github.com/KariHab/Content_Aggregator/assets/121245611/319b644a-fbe8-481b-9ed5-c4b820a926a6)
+
+![Content_agg](https://github.com/KariHab/Content_Aggregator/assets/121245611/07f75ec5-d7f0-408d-8621-97787ffe9ad2)
 
 This is a project in progress
 --------------------------------
