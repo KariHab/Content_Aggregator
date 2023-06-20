@@ -14,7 +14,8 @@ def get_articles_info(url):
     print(author_string)
     date = article.publish_date
     #format the date to day month year
-    print("Publish Date: " + str(date.strftime("%d/%m/%Y")))
-    print("Article summary")
-    print("-----------------------------------------------------------------------------------------------")
+    print("\033[1;37;40mPublish Date: " + str(date.strftime("%d/%m/%Y")))
+    print('\033[1;37;40m')
+    print("\033[1;33;40mSUMMARY \033[1;37;40m")
+    print("\033[1;33;40m-----------------------------------------------------------------------------------------------\033[1;37;40m")
     print(article.text[:])
