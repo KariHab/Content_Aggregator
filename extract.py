@@ -1,40 +1,44 @@
 import requests
-from bs4 import BeautifulSoup as soup 
+from bs4 import BeautifulSoup as sp 
 
 my_url = "https://www.nytimes.com/section/technology"
 
-def get_content_string(url):
+def extract_article_data_from_page(url):
     page = requests.get(url)
-    page_soup = soup(page.content, 'html.parser')
-    containers = page_soup.find_all("script", {"type": "application/ld+json"})
-
+    page_parsed = sp(page.content, 'html.parser')
+    # searches for all <script> elements with the attribute type="application/ld+json". 
+    data_stock = page_parsed.find_all("script", {"type": "application/ld+json"})
     article_list = []
-    for container in containers:
-        for dictionary in container:
-            article_list.append(dictionary)
+    #append to list all the dict stored in the data_stock - each data contains several dict
+    for data in data_stock:
+        for dict in data:
+            article_list.append(dict)
+    #join the 2 first items in the list to make sure we don't have any split accross multiple <script> 
     article_list[0:2] = [''.join(article_list[0:2])]
-    content_string = article_list[0]
-    article_index = content_string.index("itemListElement")
-    content_string = content_string[article_index + 18:]
-    return content_string
+    content = article_list[0]
+    #get the index where "itemListElement" to have all the articles data
+    article_index = content.index("itemListElement")
+    content = content[article_index:]
+    return content
 
+#locate the start and end index of url 
+def find_url_indices(content):
+    start = [i for i in range(len(content)) if
+                     content.startswith('https://www.nytimes.com/2023', i)]
+    end = [i for i in range(len(content)) if content.startswith('.html', i)]
+    end = [x + 5 for x in end]
+#make sur we have clean URL terminated with .html
+    if len(start) > len(end):
+        difference = len(start) - len(end)
+        start = start[:difference]
+    if len(end) > len(start):
+        difference = len(end) - (len(end) - len(start))
+        end = end[:difference]
+    return start, end
 
-def find_occurrences(content_string):
-    start_indices = [i for i in range(len(content_string)) if
-                     content_string.startswith('https://www.nytimes.com/2023', i)]
-    end_indices = [i for i in range(len(content_string)) if content_string.startswith('.html', i)]
-    end_indices = [x + 5 for x in end_indices]
-
-    if len(start_indices) > len(end_indices):
-        difference = len(start_indices) - len(end_indices)
-        start_indices = start_indices[:difference]
-    if len(end_indices) > len(start_indices):
-        difference = len(end_indices) - (len(end_indices) - len(start_indices))
-        end_indices = end_indices[:difference]
-    return start_indices, end_indices
-
-def get_all_urls(start_indices, end_indices, content_string):
+#extracting the URLs from the content using the start and end indices.
+def extract_urls(start, end, content):
     url_list = []
-    for i in range(len(start_indices)):
-        url_list.append(content_string[start_indices[i]:end_indices[i]])
+    for i in range(len(start)):
+        url_list.append(content[start[i]:end[i]])
     return url_list

@@ -1,4 +1,3 @@
-# Imports all the methods and variables from each script.
 from extract import *
 from scrape import *
 import time
@@ -9,18 +8,18 @@ print('---------------------------------------')
 print()
 time.sleep(1)
 
-# Gets all the latest URL's from the NY Times Technology Section.
-content_string = get_content_string(my_url)
-starts, ends = find_occurrences(content_string)
-url_list = get_all_urls(starts, ends, content_string)
+# 
+content = extract_article_data_from_page(my_url)
+starts, ends = find_url_indices(content)
+url_list = extract_urls(starts, ends, content)
 
-# Gets the article summary and performs sentiment analysis on the chosen URL.
+# Gets the article summary + infos
 for url in url_list:
     print("Read the full article: URL: " + str(url))
-    article_summary = summarize_article(url)   
+    article_summary = get_articles_info(url)  
     print("-----------------------------------------------------------------------------------------------")
     print()
     time.sleep(20)  # Allows user to get through all the text.
 
 print()
-print("In total " + str(len(url_list)) + " different articles were extracted!")
+print(str(len(url_list)) + " different articles were extracted!")
