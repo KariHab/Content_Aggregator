@@ -4,9 +4,11 @@ import time
 import pyfiglet as pf
 
 new_paper_title = pf.figlet_format('New York Times', font = "cybermedium")
-new_paper_subtitle = pf.figlet_format('Technology', font = "cybermedium")
+new_paper_subtitle = pf.figlet_format('  Technology', font = "cybermedium")
+print('\033[1;37;40m')
 print('\033[1;32;40m',new_paper_title,"\n", new_paper_subtitle, '\033[1;37;40m')
 time.sleep(2)
+
 
 content = extract_article_data_from_page(my_url)
 starts, ends = find_url_indices(content)
