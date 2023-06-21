@@ -21,5 +21,5 @@ A simple articles aggregator from New York Times - Technology
     * bs4 (BeautifulSoup) - Package Install: pip install bs4
 
 * Clone this repo on your machine
-* Type 'python extract.py main.py scrape.py' in your terminal 
+* Run the bash script './NYT.sh' in your terminal 
 * Read & Enjoy!
