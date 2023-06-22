@@ -1,4 +1,4 @@
 pyfiglet
-bs4
+beautifulsoup4
 newspaper3k
 requests
