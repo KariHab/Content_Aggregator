@@ -21,6 +21,5 @@ A simple articles aggregator from New York Times - Technology
     * bs4 (BeautifulSoup) - Package Install: pip install bs4
     * pyfiglet - Package install: pip install pyfiglet
 * Or run 'pip install -r requirements.txt' -> this will get you all set to read!
-* Clone this repo on your machine
 * Run the bash script './NYT.sh' in your terminal 
 * Read & Enjoy!
