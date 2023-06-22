@@ -18,7 +18,7 @@ A simple articles aggregator from New York Times - Technology
 * This project needs:
     * newspaper3k - Package Install: pip install newspaper3k
     * requests - Package Install: pip install requests
-    * bs4 (BeautifulSoup) - Package Install: pip install bs4
+    * bs4 (BeautifulSoup) - Package Install: pip install beautifulsoup4
     * pyfiglet - Package install: pip install pyfiglet
 * Or run 'pip install -r requirements.txt' -> this will get you all set to read!
 * Run the bash script './NYT.sh' in your terminal 
