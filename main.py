@@ -1,3 +1,6 @@
+# A simple content aggregator from the New York Times - Techonology
+# Karima H - June 2023
+
 from extract import *
 from scrape import *
 import time
