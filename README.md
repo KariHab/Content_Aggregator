@@ -1,4 +1,4 @@
-# Content_Aggregator
+# NYT Tech Content_Aggregator
 
 
 ![content2](https://github.com/KariHab/Content_Aggregator/assets/121245611/9d5aea41-9875-4507-ad6c-a1a3fbbd7c93)
